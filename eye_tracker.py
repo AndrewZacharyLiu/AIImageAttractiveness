@@ -1,5 +1,10 @@
+#used for video capture and marking
 import cv2
+
+#used in arrays
 import numpy as np
+
+#used to locate faces and features
 import dlib
 
 vid = cv2.VideoCapture(0)
@@ -16,8 +21,10 @@ while True:
     grscl = cv2.cvtColor(frm,cv2.COLOR_BGR2GRAY)
 
 
+    #detects all faces in video
     face_array = detector(grscl)
     
+    #locates eye and performs gaze analysis for each fact in face_array
     for face in face_array:
         left = face.left()
         top = face.top()
