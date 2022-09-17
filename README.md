@@ -9,6 +9,7 @@ source env/bin/activate<br>
 pip3 install opencv-python <br>
 pip3 install flask<br>
 pip3 install flask-wtf<br>
+pip3 install jyserver<br>
 
 ## installing dlib
 Linux: <br>
