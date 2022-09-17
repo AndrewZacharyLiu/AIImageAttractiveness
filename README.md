@@ -4,5 +4,5 @@ This project tests the hypothesis of whether AI generated images are, on average
 
 # Dependencies
 
-pip3 install opencv-python
+pip3 install opencv-python <br>
 pip3 install flask
