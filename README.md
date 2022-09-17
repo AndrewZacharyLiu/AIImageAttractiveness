@@ -1,6 +1,8 @@
 # AI-Image-Attractiveness
 
-This project tests the hypothesis of whether AI generated images are, on average, more interesting to look at over human created art, in light of the recent controversies surrounding the use of AI generated art in art competitions. The basic function of this application is to use eye tracking to determine which image is more interesting to the user when presented with two images side by side, one created by a human, and another using AI. At the end of the experiment, hopefully the results will tell us which is more interesting. We apologize in advance to any art majors out there.
+This project tests the controversial hypothesis of whether AI generated images are, on average, more interesting to look at over human created art, in light of the recent incidents surrounding the use of AI generated art in art competitions and winning. The basic function of this application is to use eye tracking to determine which image is more interesting to the user when presented with two images side by side, one created by a human, and another using AI. At the end of the experiment, hopefully the results will tell us which is more interesting. We apologize in advance to any art majors out there.
+
+This application will use opencv for the video feed and dlib for facial and eye detection. The eye detector will only target the right eye because we're assuming your pupils can't point in different directions. If your eyes can do this, don't do it. In order to determine the direction, we will be taking the feed of the eye, converting it to grayscale, then applying a binary threshold to convert it all to black and white pixels. We will then create two separate feeds with varied bounds for looking left and right and count the black pixels present (pupil) to determine a direction.
 
 # Dependencies
 pip3 install virtualenv<br>
@@ -9,6 +11,7 @@ source env/bin/activate<br>
 pip3 install opencv-python <br>
 pip3 install flask<br>
 pip3 install flask-wtf<br>
+pip3 install jyserver<br>
 
 ## installing dlib
 Linux: <br>
@@ -31,3 +34,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 pip install torch
 pip install transformers
 pip install diffusers
+pip install lxml
+pip install bs4
+pip install requests
