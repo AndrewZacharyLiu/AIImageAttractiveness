@@ -63,6 +63,10 @@ while True:
         cv2.putText(frm, str(eye_r_dark), (64, 128),1,2,(0,255,0),2)
         cv2.putText(frm, str(eye_l_dark), (64, 192),1,2,(0,255,0),2)
 
+        if eye_l_dark == 0 and eye_r_dark == 0:
+            CLOSER = "Get closer/ensure eyes are visible."
+            cv2.putText(frm, CLOSER, (32, 256),1,2,(0,255,0),2)
+        
         if eye_l_dark > eye_r_dark:
             cv2.putText(frm, "RIGHT", (192, 128),1,2,(0,255,0),2)
         else:
@@ -74,7 +78,6 @@ while True:
         # cv2.imshow("Right", eye_right_bound)
         # cv2.imshow("Threshold", eye_threshold)
         # cv2.imshow("Eye",eye)
-
     
     cv2.imshow("Frame",frm)
     
