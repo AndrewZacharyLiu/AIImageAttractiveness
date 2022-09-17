@@ -1,6 +1,6 @@
 # AIImageAttractiveness
 
-This project tests the hypothesis of whether AI generated images are, on average, more interesting to look at over human created art. We apologize in advance to any art majors out there.
+This project tests the hypothesis of whether AI generated images are, on average, more interesting to look at over human created art, in light of the recent controversies surrounding the use of AI generated art in art competitions. The basic function of this application is to use eye tracking to determine which image is more interesting to the user when presented with two images side by side, one created by a human, and another using AI. At the end of the experiment, hopefully the results will tell us which is more interesting. We apologize in advance to any art majors out there.
 
 # Dependencies
 pip3 install virtualenv<br>
