@@ -11,7 +11,7 @@ vid = cv2.VideoCapture(0)
 
 detector = dlib.get_frontal_face_detector()
 
-face_feature_finder = dlib.shape_predictor("face_landmarks.dat")
+face_feature_finder = dlib.shape_predictor("Eye_Tracker/face_landmarks.dat")
 
 
 while True:
@@ -89,7 +89,7 @@ while True:
     if len(face_array) == 0:
             CLOSER = "Get closer/ensure eyes are visible."
             cv2.putText(frm, CLOSER, (32, 256),1,2,(0,255,0),2)
-            
+
     cv2.imshow("Frame",frm)
 
     
