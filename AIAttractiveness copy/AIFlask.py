@@ -5,7 +5,7 @@ from flask import Flask, render_template, url_for, flash, redirect
 from flask_wtf import FlaskForm
 from wtforms import SelectMultipleField, SubmitField, SelectField
 import random
-import jyserver.Flask as jsf
+results = []
 
 
 app = Flask(__name__)
@@ -15,12 +15,8 @@ count = 0
 class ButtonForm(FlaskForm):
     button = SubmitField("Start test")
 
-@jsf.use(app)
-class App:
-    def __init__(self):
-        pass
-    def increment(self):
-        self.js.document.getElementById("count").innerHTML = 1
+class CuttonForm(FlaskForm):
+    button = SubmitField("Start test")
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -30,30 +26,19 @@ def home():
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
-    t1 = threading.Thread(target=eye_tracker)
-    t1.start()
-    return render_template('test.html')
+    form = CuttonForm()
+    s = "I want this to print"
+    return render_template('test.html', content={"val":s}, form = form)
 
 
-def eye_tracker():
-    winner =[]
-    for x in range(6):
-        image_bias = 0
-        t2 = threading.Thread(target=image_update)
-        t2.start()
-        for y in range(1000):
-            time.sleep(0.1)
-            if (random.randrange(0,1) == 0):
-                image_bias -= 1
-            else:
-                image_bias += 1
-        if(image_bias > 0):
-            winner.append("real")
-        else:
-            winner.append("ai")
+
+@app.route("/testcall", methods=['GET', 'POST'])
+def testcall():
+    form = CuttonForm()
+    i = random.randrange(0,2)
+    results.append(i)
+    print(results)
+    return render_template('test.html', content={"val":i}, form = form)
             
-def image_update():
-    return App.render(render_template("test.html"))
-
 if __name__ == "__main__":
     app.run(debug=True)

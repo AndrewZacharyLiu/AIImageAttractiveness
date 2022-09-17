@@ -12,9 +12,20 @@
 <header>
 <!--< img src="ImageDisplayed?.png" width="500" height="333" class="imageLeft" alt="imageNotFound"/> -->
 <img src="ImageDisplayed?.png" alt="Italian Trulli">
+<p>{{content['count']}}</p>
+<p>{{content['val']}}</p>
 <p id="count">0</p>
 
 </header>
+
+<div class="content-section" >
+    <form action="/testcall" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <center><input type = "Submit"></center>
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
