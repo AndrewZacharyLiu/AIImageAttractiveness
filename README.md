@@ -24,9 +24,7 @@ pip3 install cmake<br>
 mac:
 I dont know how to use macOS
 
-
-
-stuff to install:
+# other stuff to install:
 
 commands in terminal:
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
