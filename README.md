@@ -31,3 +31,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 pip install torch
 pip install transformers
 pip install diffusers
+pip install lxml
+pip install bs4
+pip install requests
