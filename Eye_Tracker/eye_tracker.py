@@ -62,7 +62,7 @@ while True:
 
         #left and right switched
         eye_left_bound = eye_threshold[0:eye_height, eye_width//6:int(eye_width/3)]
-        eye_right_bound = eye_threshold[0:eye_height, int(eye_width/2):eye_width]
+        eye_right_bound = eye_threshold[0:eye_height, int(eye_width/1.5):eye_width]
 
         eye_l_dark = cv2.countNonZero(eye_left_bound)
         eye_r_dark = cv2.countNonZero(eye_right_bound)
@@ -74,7 +74,7 @@ while True:
             CLOSER = "Get closer/ensure eyes are visible."
             cv2.putText(frm, CLOSER, (32, 256),1,2,(0,255,0),2)
         
-        if eye_r_dark > eye_l_dark + int(eye_width/2):
+        if eye_r_dark > eye_l_dark + int(eye_width/1.25):
             cv2.putText(frm, "RIGHT", (192, 128),1,2,(0,255,0),2)
         else:
             cv2.putText(frm, "LEFT", (192, 192),1,2,(0,255,0),2)
@@ -87,7 +87,7 @@ while True:
         # cv2.imshow("Eye",eye)
     
     if len(face_array) == 0:
-            CLOSER = "Get closer/ensure eyes are visible."
+            CLOSER = "Get closer/ensure face is visible."
             cv2.putText(frm, CLOSER, (32, 256),1,2,(0,255,0),2)
 
     cv2.imshow("Frame",frm)
