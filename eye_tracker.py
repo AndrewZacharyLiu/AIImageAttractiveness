@@ -55,29 +55,25 @@ while True:
 
         #left and right switched
         eye_right_bound = eye_threshold[0:eye_height, eye_width//6:eye_width//2]
-        eye_left_bound = eye_threshold[0:eye_height, 2*eye_width//3:eye_width]
+        eye_left_bound = eye_threshold[0:eye_height, eye_width//2:eye_width]
 
         eye_r_dark = cv2.countNonZero(eye_right_bound)
         eye_l_dark = cv2.countNonZero(eye_left_bound)
-        
-        eye_dark_ratio = 0
-        if eye_l_dark != 0:
-            eye_dark_ratio = eye_r_dark/eye_l_dark
-        else:
-            eye_dark_ratio = 1.5
 
         cv2.putText(frm, str(eye_r_dark), (64, 128),1,2,(0,255,0),2)
         cv2.putText(frm, str(eye_l_dark), (64, 192),1,2,(0,255,0),2)
 
-        if (eye_dark_ratio > 0 and eye_dark_ratio < 1) or eye_r_dark == 0:
-            cv2.putText(frm, "RIGHT", (128, 128),1,2,(0,255,0),2)
-        elif eye_l_dark == 0 or eye_dark_ratio > 1:
-            cv2.putText(frm, "LEFT", (128, 192),1,2,(0,255,0),2)
+        if eye_l_dark > eye_r_dark:
+            cv2.putText(frm, "RIGHT", (192, 128),1,2,(0,255,0),2)
+        else:
+            cv2.putText(frm, "LEFT", (192, 192),1,2,(0,255,0),2)
 
-        cv2.imshow("Left", eye_left_bound)
-        cv2.imshow("Right", eye_right_bound)
-        cv2.imshow("Threshold", eye_threshold)
-        cv2.imshow("Eye",eye)
+        #used to display the eyes and bounds
+
+        # cv2.imshow("Left", eye_left_bound)
+        # cv2.imshow("Right", eye_right_bound)
+        # cv2.imshow("Threshold", eye_threshold)
+        # cv2.imshow("Eye",eye)
 
     
     cv2.imshow("Frame",frm)
