@@ -11,7 +11,6 @@ pip3 install flask<br>
 pip3 install flask-wtf<br>
 
 ## installing dlib
-### 1. install cmake
 Linux: <br>
 sudo apt install cmake<br>
 pip3 install cmake<br>
