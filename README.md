@@ -3,9 +3,12 @@
 This project tests the hypothesis of whether AI generated images are, on average, more interesting to look at over human created art. We apologize in advance to any art majors out there.
 
 # Dependencies
-
+pip3 install virtualenv
+virtualenv env
+source env/bin/activate
 pip3 install opencv-python <br>
 pip3 install flask
+pip3 install flask-wtf
 
 
 stuff to install:
