@@ -70,9 +70,9 @@ while True:
         cv2.putText(frm, str(eye_l_dark), (64, 192),1,2,(0,255,0),2)
 
         if (eye_dark_ratio > 0 and eye_dark_ratio < 1) or eye_r_dark == 0:
-            print("right")
+            cv2.putText(frm, "RIGHT", (128, 128),1,2,(0,255,0),2)
         elif eye_l_dark == 0 or eye_dark_ratio > 1:
-            print("left")
+            cv2.putText(frm, "LEFT", (128, 192),1,2,(0,255,0),2)
 
         cv2.imshow("Left", eye_left_bound)
         cv2.imshow("Right", eye_right_bound)
