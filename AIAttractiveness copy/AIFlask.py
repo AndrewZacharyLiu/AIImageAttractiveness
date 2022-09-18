@@ -44,11 +44,9 @@ def test():
 def testcall():
     form = CuttonForm()
     #check this thing
-    results.append(direction)
+    #results.append(direction)
     print(results)
     return render_template('test.html', content={"val":results}, form = form)
             
 if __name__ == "__main__":
-    app.run(debug=True)
-    threading.Thread(target=track_eye, args=(direction, results, ))
-    print(results)
+    app.run(port=5006,debug=True)
