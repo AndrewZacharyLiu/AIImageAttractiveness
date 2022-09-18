@@ -13,7 +13,7 @@ import random
 
 gui = tk.Tk()
 #gui.geometry("1920x1080")
-gui.title("AI-Thing")
+gui.title("ART-Client")
 gui.resizable(False, False)
 
 my_font = ("Cambria Math", 10, BOLD)
@@ -108,7 +108,7 @@ def find_winner():
     print(winner)
 
 def cycle():
-    for i in range(0,7):
+    for i in range(0,14):
         load_image(canvas1,canvas2,i)
         track()
     find_winner()
