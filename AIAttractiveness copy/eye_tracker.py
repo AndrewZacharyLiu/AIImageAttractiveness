@@ -68,7 +68,7 @@ def track_eye(direction, results):
 
             #left and right switched
             eye_left_bound = eye_threshold[0:eye_height, eye_width//6:int(eye_width/3)]
-            eye_right_bound = eye_threshold[0:eye_height, int(eye_width/1.5):eye_width]
+            eye_right_bound = eye_threshold[0:eye_height, int(eye_width/1.75):eye_width]
 
             eye_l_dark = cv2.countNonZero(eye_left_bound)
             eye_r_dark = cv2.countNonZero(eye_right_bound)

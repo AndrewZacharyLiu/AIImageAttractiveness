@@ -4,9 +4,8 @@ import threading
 from flask import Flask, render_template, url_for, flash, redirect
 from flask_wtf import FlaskForm
 from wtforms import SelectMultipleField, SubmitField, SelectField
-import random
 from eye_tracker import track_eye
-import cv2
+import asyncio
 
 results = []
 direction = False
@@ -41,7 +40,7 @@ def test():
 #initialize the video feed
 
 
-def testcall():
+async def testcall():
     form = CuttonForm()
     results = []
 
@@ -59,5 +58,5 @@ def testcall():
     return render_template('test.html', content={"val":left_right}, form = form)
             
 if __name__ == "__main__":
-    app.run(port=5015,debug=True)
+    app.run(port=5017,debug=True)
 
