@@ -1,16 +1,15 @@
-imageDatabase = {"planes": [[None],[None]], "cars":[], "stars":[], "scenery":[], "pottery":[], "portrait":[], "headphones":[], "objects":[], "coder":[], "fruits":[], "vegetables":[], "foods":[], "places":[], "attractions":[]}
+imageDatabase = {"planes": [[None],[None]], "cars":[[None],[None]], "stars":[[None],[None]], "scenery":[[None],[None]], "pottery":[[None],[None]], "portrait":[[None],[None]], "headphones":[[None],[None]], "objects":[[None],[None]], "coder":[[None],[None]], "fruits":[[None],[None]], "vegetables":[[None],[None]], "foods":[[None],[None]], "places":[[None],[None]], "attractions":[[None],[None]]}
 
 
-from torch import autocast
-from diffusers import StableDiffusionPipeline
-pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", use_auth_token="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")
-pipe = pipe.to("cuda")
+# from torch import autocast
+# from diffusers import StableDiffusionPipeline
+# pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", use_auth_token="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")
+# pipe = pipe.to("cpu")
 
-prompt = "apple"
-with autocast("cuda"):
-    image = pipe(prompt).images[0]  
+# prompt = "apple"
+# with autocast("cpu"):
+#     image = pipe(prompt).images[0]  
 
-'''
 import requests, lxml, re, urllib.request
 from bs4 import BeautifulSoup
 import random
@@ -34,7 +33,6 @@ for key in imageDatabase:
             images.append(img["src"])
         return images[random.randrange(len(images))]
 
-    imageDatabase[key].append(get_images_with_request_headers())
+    imageDatabase[key][0] = get_images_with_request_headers()
 
-print(imageDatabase["planes"])
-'''
+#print(imageDatabase)
