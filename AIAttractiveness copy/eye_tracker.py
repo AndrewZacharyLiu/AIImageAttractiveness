@@ -18,7 +18,9 @@ def track_eye(direction, results):
 
     face_feature_finder = dlib.shape_predictor("face_landmarks.dat")
 
-    while True:
+    time_end = time.time() + 10
+
+    while time.time() < time_end:
         _, frm = vid.read()
         _, frm_clean = vid.read()
 
@@ -110,6 +112,17 @@ def track_eye(direction, results):
     vid.release()
 
     cv2.destroyAllWindows()
-    time.sleep(1)
     return results
 
+
+# direction = False
+# results = []
+# track_eye(direction, results)
+# right = 0
+# left = 0
+# for dir in results:
+#     if dir:
+#         right += 1
+#     else:
+#         left += 1
+# print(right,left)

@@ -45,13 +45,19 @@ def testcall():
     form = CuttonForm()
     results = []
 
-    cv2.VideoCapture(0).release()
     track_eye(direction, results)
-    cv2.destroyAllWindows()
     #check this thing
     #results.append(direction)
-    return render_template('test.html', content={"val":results}, form = form)
+    right = 0
+    left = 0
+    for dir in results:
+        if dir:
+            right += 1
+        else:
+            left += 1
+    left_right = (left,right)
+    return render_template('test.html', content={"val":left_right}, form = form)
             
 if __name__ == "__main__":
-    app.run(port=5013,debug=True)
+    app.run(port=5015,debug=True)
 
