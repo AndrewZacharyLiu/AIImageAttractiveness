@@ -1,4 +1,17 @@
-imageDatabase = {"planes": [[None],[None]], "cars":[[None],[None]], "stars":[[None],[None]], "scenery":[[None],[None]], "pottery":[[None],[None]], "portrait":[[None],[None]], "headphones":[[None],[None]], "objects":[[None],[None]], "coder":[[None],[None]], "fruits":[[None],[None]], "vegetables":[[None],[None]], "foods":[[None],[None]], "places":[[None],[None]], "attractions":[[None],[None]]}
+imageDatabase = {"planes": [[None],[None]], 
+                "cars":[[None],[None]], 
+                "stars":[[None],[None]], 
+                "scenery":[[None],[None]], 
+                "pottery":[[None],[None]], 
+                "portrait":[[None],[None]], 
+                "headphones":[[None],[None]], 
+                "objects":[[None],[None]], 
+                "coder":[[None],[None]], 
+                "fruits":[[None],[None]], 
+                "vegetables":[[None],[None]], 
+                "foods":[[None],[None]], 
+                "places":[[None],[None]], 
+                "attractions":[[None],[None]]}
 
 
 # from torch import autocast

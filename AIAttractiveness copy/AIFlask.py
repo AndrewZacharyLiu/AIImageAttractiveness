@@ -58,5 +58,5 @@ async def testcall():
     return render_template('test.html', content={"val":left_right}, form = form)
             
 if __name__ == "__main__":
-    app.run(port=5017,debug=True)
+    app.run(port=5000,debug=True)
 
