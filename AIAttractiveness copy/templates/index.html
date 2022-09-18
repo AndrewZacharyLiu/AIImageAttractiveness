@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<script src="myscripts.js"></script>
+
+<h1>Welcome to the AI Art test</h1>
+<p>In this following test, you will have 10 seconds to judge a pair of artworks, one created by an AI and one by a real person. The two artworks will compete to captivate your attention. Using an eye tracker, the website will judge which art you have look at for the longest.</p>
+<!--<button onclick = "startTest()" style = "background-color:blueviolet;">click to start</button>-->
+
+<div class="content-section" >
+    <form action="/test" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <center><input type = "Submit"></center>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
