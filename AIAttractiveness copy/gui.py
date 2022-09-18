@@ -37,21 +37,25 @@ ai_imgs = ["AI/AI/1.jpeg","AI/AI/2.jpeg","AI/AI/3.jpeg","AI/AI/4.jpeg","AI/AI/5.
 direction = False
 results = []
 
-global img
-rand = 0
+# img = None
+# rand_int = 0
 
 def load_image(canvas1,canvas2,indx):
-    picture=[human_imgs[indx],ai_imgs[indx]]
-    rand = random.randrange(0,2)
-    if (rand == 1):
-        empty=picture[0]
-        picture[0]=picture[1]
-        picture[1]=empty
-    img = ImageTk.PhotoImage(Image.open(picture[0]))
+    
+    # global rand_int
+    # global img
+    
+    # picture=[human_imgs[indx],ai_imgs[indx]]
+    # rand_int = random.randrange(0,2)
+    # if (rand_int == 1):
+    #     empty=picture[0]
+    #     picture[0]=picture[1]
+    #     picture[1]=empty
+    img = ImageTk.PhotoImage(Image.open(human_imgs[indx]))
     canvas1.create_image(240,540, anchor=W, image=img) 
     canvas1.image = img
 
-    img = ImageTk.PhotoImage(Image.open(picture[1]))
+    img = ImageTk.PhotoImage(Image.open(ai_imgs[indx]))
     canvas2.create_image(480,540, anchor=CENTER, image=img) 
     canvas2.image = img
 
@@ -61,18 +65,14 @@ def track():
     track_eye(direction,results)
     human = 0
     ai = 0
+    #print(rand_int)
     for i in results:
         #fixes the bug caused by randomness
-        if rand == 1:
-            if i:
-                human+=1
-            else:
-                ai+=1
+        if i:
+            human+=1
         else:
-            if i:
-                ai+=1
-            else:
-                human+=1
+            ai+=1
+
     print((ai,human))
 
     if ai > human:
@@ -106,6 +106,7 @@ def find_winner():
     else:
         winner = "Tie"
     print(winner)
+
 def cycle():
     for i in range(0,7):
         load_image(canvas1,canvas2,i)
