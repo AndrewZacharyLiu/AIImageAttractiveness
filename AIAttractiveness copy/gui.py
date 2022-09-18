@@ -26,8 +26,12 @@ canvas1.pack(side=tk.LEFT)
 canvas2 = Canvas(gui, width = 960, height = 1080)  
 canvas2.pack(side=tk.RIGHT)
 
-human_imgs = ["Real/Real/1.jpeg","Real/Real/2.jpeg","Real/Real/3.jpeg","Real/Real/4.jpeg","Real/Real/5.jpeg","Real/Real/6.jpeg","Real/Real/7.jpeg", "Real/Humans_Win.png"]
-ai_imgs = ["AI/AI/1.jpeg","AI/AI/2.jpeg","AI/AI/3.jpeg","AI/AI/4.jpeg","AI/AI/5.jpeg","AI/AI/6.jpeg","AI/AI/7.jpeg","AI/AI_Wins.png"]
+human_imgs = ["Real/Real/1.jpeg","Real/Real/2.jpeg","Real/Real/3.jpeg","Real/Real/4.jpeg","Real/Real/5.jpeg","Real/Real/6.jpeg","Real/Real/7.jpeg",
+               "Real/Real/8.jpeg","Real/Real/9.jpeg","Real/Real/10.jpeg","Real/Real/11.jpeg","Real/Real/12.jpeg","Real/Real/13.jpeg", "Real/Real/14.jpeg", "Real/Humans_Win.png"]
+ai_imgs = ["AI/AI/1.jpeg","AI/AI/2.jpeg","AI/AI/3.jpeg","AI/AI/4.jpeg","AI/AI/5.jpeg","AI/AI/6.jpeg","AI/AI/7.jpeg",
+            "AI/AI/8.jpeg","AI/AI/9.jpeg","AI/AI/10.jpeg","AI/AI/11.jpeg","AI/AI/12.jpeg","AI/AI/13.jpeg","AI/AI/14.jpeg","AI/AI_Wins.png"]
+
+
 
 
 direction = False
@@ -76,7 +80,7 @@ def find_winner():
             left+=1
     if right > left:
         winner = "AI win"
-        img = ImageTk.PhotoImage(Image.open(ai_imgs[7]))
+        img = ImageTk.PhotoImage(Image.open(ai_imgs[14]))
         canvas1.create_image(240,540, anchor=W, image=img) 
         canvas1.image = img
 
@@ -84,7 +88,7 @@ def find_winner():
         canvas2.image = img
     elif left > right:
         winner = "Humans wins"
-        img = ImageTk.PhotoImage(Image.open(human_imgs[7]))
+        img = ImageTk.PhotoImage(Image.open(human_imgs[14]))
         canvas1.create_image(240,540, anchor=W, image=img) 
         canvas1.image = img
 
