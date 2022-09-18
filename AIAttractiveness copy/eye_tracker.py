@@ -7,6 +7,7 @@ import numpy as np
 #used to locate faces and features
 import dlib
 
+import time
 
     
 def track_eye(direction, results):
@@ -107,10 +108,8 @@ def track_eye(direction, results):
             break
 
     vid.release()
+
     cv2.destroyAllWindows()
+    time.sleep(1)
     return results
 
-# dir = False
-# results = []
-# track_eye(dir,results)
-# print(results)
