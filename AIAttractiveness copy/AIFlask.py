@@ -5,8 +5,8 @@ from flask import Flask, render_template, url_for, flash, redirect
 from flask_wtf import FlaskForm
 from wtforms import SelectMultipleField, SubmitField, SelectField
 import random
-
 from eye_tracker import track_eye
+import cv2
 
 results = []
 direction = False
@@ -43,10 +43,14 @@ def test():
 
 def testcall():
     form = CuttonForm()
+    results = []
+    cv2.destroyAllWindows()
+    track_eye(direction, results)
+    cv2.destroyAllWindows()
     #check this thing
     #results.append(direction)
-    print(results)
     return render_template('test.html', content={"val":results}, form = form)
             
 if __name__ == "__main__":
-    app.run(port=5006,debug=True)
+    app.run(port=5012,debug=True)
+

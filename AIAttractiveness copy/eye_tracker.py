@@ -10,6 +10,7 @@ import dlib
 
     
 def track_eye(direction, results):
+
     vid = cv2.VideoCapture(0)
 
     detector = dlib.get_frontal_face_detector()
@@ -109,7 +110,7 @@ def track_eye(direction, results):
     cv2.destroyAllWindows()
     return results
 
-dir = False
-results = []
-track_eye(dir,results)
-print(results)
+# dir = False
+# results = []
+# track_eye(dir,results)
+# print(results)
