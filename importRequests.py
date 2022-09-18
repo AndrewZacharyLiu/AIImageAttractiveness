@@ -1,23 +1,23 @@
+
+'''
 imageDatabase = {"planes": [[None],[None]], "cars":[], "stars":[], "scenery":[], "pottery":[], "portrait":[], "headphones":[], "objects":[], "coder":[], "fruits":[], "vegetables":[], "foods":[], "places":[], "attractions":[]}
-
-
 from torch import autocast
 from diffusers import StableDiffusionPipeline
 pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", use_auth_token="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")
-pipe = pipe.to("cuda")
+pipe = pipe.to("cpu")
 
 prompt = "apple"
-with autocast("cuda"):
+with autocast("cpu"):
     image = pipe(prompt).images[0]  
 
-'''
+
 import requests, lxml, re, urllib.request
 from bs4 import BeautifulSoup
 import random
 
 for key in imageDatabase:
     params = {
-        "q": key, # search query
+        "q": key,                     # search query
         "tbm": "isch",                # image results
         "hl": "en",                   # language of the search
         "gl": "us",                   # country where search comes from
@@ -35,6 +35,16 @@ for key in imageDatabase:
         return images[random.randrange(len(images))]
 
     imageDatabase[key].append(get_images_with_request_headers())
+#print(imageDatabase)
 
 print(imageDatabase["planes"])
 '''
+
+from torch import autocast
+from diffusers import StableDiffusionPipeline
+pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", use_auth_token="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")
+pipe = pipe.to("cpu")
+
+prompt = "apple"
+with autocast("cpu"):
+    image = pipe(prompt).images[0]
