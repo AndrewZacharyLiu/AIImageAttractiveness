@@ -28,7 +28,7 @@ imageDatabase = {"planes": [[None],[None]],
 # with autocast("cpu"):
 #     image = pipe(prompt).images[0]
 
-#import requests, lxml, re, urllib.request
+import requests, lxml, re, urllib.request
 from bs4 import BeautifulSoup
 import random
 
