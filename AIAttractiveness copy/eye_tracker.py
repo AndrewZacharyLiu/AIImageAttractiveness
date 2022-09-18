@@ -94,13 +94,14 @@ def track_eye(direction, results):
             # cv2.imshow("Left", eye_left_bound)
             # cv2.imshow("Right", eye_right_bound)
             # cv2.imshow("Threshold", eye_threshold)
-            # cv2.imshow("Eye",eye)
+            #cv2.imshow("Eye",eye)
         
         if len(face_array) == 0:
                 CLOSER = "Get closer/ensure face is visible."
                 cv2.putText(frm, CLOSER, (32, 256),1,2,(0,255,0),2)
 
-        cv2.imshow("Frame",frm)
+        #comment this out to remove display
+        #cv2.imshow("Frame",frm)
         #print(direction)
         
 

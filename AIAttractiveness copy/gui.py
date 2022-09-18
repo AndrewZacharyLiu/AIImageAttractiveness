@@ -7,6 +7,7 @@ import io
 from PIL import Image, ImageTk
 from urllib.request import urlopen
 from importRequests import *
+import random
 
 
 
@@ -22,11 +23,12 @@ my_font = ("Cambria Math", 10, BOLD)
 
 canvas1 = Canvas(gui, width = 960, height = 1080)  
 canvas1.pack(side=tk.LEFT)
-canvas2 = Canvas(gui, width = 960, height = 1080, bg="red")  
+canvas2 = Canvas(gui, width = 960, height = 1080)  
 canvas2.pack(side=tk.RIGHT)
 
-human_imgs = ["cat.png","cat.png","cat.png","cat.png","cat.png","cat.png","cat.png"]
-ai_imgs = ["cat.png","cat.png","cat.png","cat.png","cat.png","cat.png","cat.png"]
+human_imgs = ["Real/Real/1.jpeg","Real/Real/2.jpeg","Real/Real/3.jpeg","Real/Real/4.jpeg","Real/Real/5.jpeg","Real/Real/6.jpeg","Real/Real/7.jpeg", "Real/Humans_Win.png"]
+ai_imgs = ["AI/AI/1.jpeg","AI/AI/2.jpeg","AI/AI/3.jpeg","AI/AI/4.jpeg","AI/AI/5.jpeg","AI/AI/6.jpeg","AI/AI/7.jpeg","AI/AI_Wins.png"]
+
 
 direction = False
 results = []
@@ -34,11 +36,17 @@ results = []
 global img
 
 def load_image(canvas1,canvas2,indx):
-    img = ImageTk.PhotoImage(Image.open(human_imgs[indx]))
+    picture=[human_imgs[indx],ai_imgs[indx]]
+    rand = random.randrange(0,2)
+    if (rand == 1):
+        empty=picture[0]
+        picture[0]=picture[1]
+        picture[1]=empty
+    img = ImageTk.PhotoImage(Image.open(picture[0]))
     canvas1.create_image(240,540, anchor=W, image=img) 
     canvas1.image = img
 
-    img = ImageTk.PhotoImage(Image.open(ai_imgs[indx]))
+    img = ImageTk.PhotoImage(Image.open(picture[1]))
     canvas2.create_image(480,540, anchor=CENTER, image=img) 
     canvas2.image = img
 
@@ -67,11 +75,24 @@ def find_winner():
         else:
             left+=1
     if right > left:
-        print("Right")
+        winner = "AI win"
+        img = ImageTk.PhotoImage(Image.open(ai_imgs[7]))
+        canvas1.create_image(240,540, anchor=W, image=img) 
+        canvas1.image = img
+
+        canvas2.create_image(240,540, anchor=W, image=img) 
+        canvas2.image = img
     elif left > right:
-        print("Left")
+        winner = "Humans wins"
+        img = ImageTk.PhotoImage(Image.open(human_imgs[7]))
+        canvas1.create_image(240,540, anchor=W, image=img) 
+        canvas1.image = img
+
+        canvas2.create_image(240,540, anchor=W, image=img) 
+        canvas2.image = img
     else:
-        print("Tie")
+        winner = "Tie"
+    print(winner)
 def cycle():
     for i in range(0,7):
         load_image(canvas1,canvas2,i)
