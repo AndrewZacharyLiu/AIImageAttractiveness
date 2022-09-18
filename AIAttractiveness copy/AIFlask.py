@@ -46,7 +46,7 @@ def testcall():
     #check this thing
     results.append(direction)
     print(results)
-    return render_template('test.html', content={"val":i}, form = form)
+    return render_template('test.html', content={"val":results}, form = form)
             
 if __name__ == "__main__":
     app.run(debug=True)
