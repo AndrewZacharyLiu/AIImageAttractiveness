@@ -28,8 +28,9 @@ install cmake from the web<br>
 pip3 install cmake<br>
 pip3 install dlib<br>
 
-macOS:
-I dont know how to use macOS so somebody help
+macOS:<br>
+pip3 install cmake<br>
+pip3 install dlib<br>
 
 # other stuff to install:
 
