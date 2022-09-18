@@ -115,14 +115,14 @@ def track_eye(direction, results):
     return results
 
 
-direction = False
-results = []
-track_eye(direction, results)
-right = 0
-left = 0
-for dir in results:
-    if dir:
-        right += 1
-    else:
-        left += 1
-print(right,left)
+# direction = False
+# results = []
+# track_eye(direction, results)
+# right = 0
+# left = 0
+# for dir in results:
+#     if dir:
+#         right += 1
+#     else:
+#         left += 1
+# print(right,left)
