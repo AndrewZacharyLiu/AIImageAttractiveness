@@ -38,10 +38,11 @@ direction = False
 results = []
 
 global img
-rand = random.randrange(0,2)
+rand = 0
 
 def load_image(canvas1,canvas2,indx):
     picture=[human_imgs[indx],ai_imgs[indx]]
+    rand = random.randrange(0,2)
     if (rand == 1):
         empty=picture[0]
         picture[0]=picture[1]
