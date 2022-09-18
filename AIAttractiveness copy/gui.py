@@ -61,6 +61,7 @@ def track():
     human = 0
     ai = 0
     for i in results:
+        #fixes the bug caused by randomness
         if rand == 1:
             if i:
                 human+=1
@@ -78,14 +79,14 @@ def track():
     else:
         results.append(False)
 def find_winner():
-    right = 0
-    left = 0
+    ai = 0
+    human = 0
     for i in results:
         if i:
-            right+=1
+            ai+=1
         else:
-            left+=1
-    if right > left:
+            human+=1
+    if ai > human:
         winner = "AI win"
         img = ImageTk.PhotoImage(Image.open(ai_imgs[14]))
         canvas1.create_image(240,540, anchor=W, image=img) 
@@ -93,7 +94,7 @@ def find_winner():
 
         canvas2.create_image(240,540, anchor=W, image=img) 
         canvas2.image = img
-    elif left > right:
+    elif human > ai:
         winner = "Humans wins"
         img = ImageTk.PhotoImage(Image.open(human_imgs[14]))
         canvas1.create_image(240,540, anchor=W, image=img) 
