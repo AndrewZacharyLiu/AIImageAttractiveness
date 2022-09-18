@@ -101,7 +101,7 @@ def track_eye(direction, results):
                 cv2.putText(frm, CLOSER, (32, 256),1,2,(0,255,0),2)
 
         #comment this out to remove display
-        #cv2.imshow("Frame",frm)
+        cv2.imshow("Frame",frm)
         #print(direction)
         
 
