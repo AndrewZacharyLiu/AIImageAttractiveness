@@ -38,10 +38,10 @@ direction = False
 results = []
 
 global img
+rand = random.randrange(0,2)
 
 def load_image(canvas1,canvas2,indx):
     picture=[human_imgs[indx],ai_imgs[indx]]
-    rand = random.randrange(0,2)
     if (rand == 1):
         empty=picture[0]
         picture[0]=picture[1]
@@ -58,18 +58,25 @@ def load_image(canvas1,canvas2,indx):
     
 def track():
     track_eye(direction,results)
-    right = 0
-    left = 0
+    human = 0
+    ai = 0
     for i in results:
-        if i:
-            right+=1
+        if rand == 1:
+            if i:
+                human+=1
+            else:
+                ai+=1
         else:
-            left+=1
-    print((left,right))
-    if left > right:
-        results.append(False)
-    else:
+            if i:
+                ai+=1
+            else:
+                human+=1
+    print((ai,human))
+
+    if ai > human:
         results.append(True)
+    else:
+        results.append(False)
 def find_winner():
     right = 0
     left = 0
